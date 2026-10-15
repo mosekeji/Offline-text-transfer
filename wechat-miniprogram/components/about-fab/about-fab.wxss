@@ -1,0 +1,280 @@
+/* ==================== 关于：悬浮按钮 + 使用说明弹窗 ==================== */
+/* 说明：颜色统一走 app.wxss 的 CSS 变量，变量未生效时回退到字面值 */
+
+/* -------- 悬浮按钮 -------- */
+.about-fab {
+  position: fixed;
+  right: 24rpx;
+  /* 页面区域本身就在原生 tabBar 之上，这里再留一段呼吸距离 */
+  bottom: 48rpx;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  height: 76rpx;
+  padding: 0 28rpx;
+  border-radius: 999rpx;
+  background: linear-gradient(135deg, #5A73F0 0%, #4A63E7 100%);
+  box-shadow: 0 8rpx 24rpx rgba(74, 99, 231, .35);
+  color: #fff;
+  line-height: 1;
+  transition: transform .12s ease, opacity .12s ease;
+}
+
+.fab-ico {
+  font-size: 26rpx;
+  margin-right: 8rpx;
+}
+
+.fab-text {
+  font-size: 24rpx;
+  font-weight: 600;
+}
+
+.fab-hover {
+  transform: scale(.94);
+  opacity: .92;
+}
+
+/* -------- 遮罩 -------- */
+.about-mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 200;
+  background: rgba(31, 42, 55, .58);
+  animation: maskIn .2s ease both;
+}
+
+/* -------- 弹窗 -------- */
+.about-modal {
+  position: fixed;
+  left: 48rpx;
+  right: 48rpx;
+  top: 50%;
+  height: 76vh;
+  max-height: 1180rpx;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 28rpx;
+  box-shadow: 0 24rpx 64rpx rgba(31, 42, 55, .28);
+  animation: modalIn .24s cubic-bezier(.22, .75, .3, 1) both;
+}
+
+.about-head {
+  padding: 36rpx 32rpx 20rpx;
+}
+
+.about-title {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: var(--text, #1F2A37);
+}
+
+.about-sub {
+  margin-top: 8rpx;
+  font-size: 22rpx;
+  color: var(--text-3, #95A0B0);
+}
+
+/* 正文区：独立滚动，底部按钮固定 */
+.about-body {
+  flex: 1;
+  min-height: 0;
+  padding: 4rpx 32rpx 8rpx;
+  box-sizing: border-box;
+}
+
+.about-foot {
+  padding: 16rpx 32rpx calc(28rpx + env(safe-area-inset-bottom));
+  border-top: 1rpx solid var(--line, #E8ECF3);
+}
+
+.about-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88rpx;
+  border-radius: 18rpx;
+  background: linear-gradient(135deg, #5A73F0 0%, #4A63E7 100%);
+  box-shadow: 0 8rpx 20rpx rgba(74, 99, 231, .28);
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.btn-hover {
+  opacity: .9;
+}
+
+/* -------- 内容小节 -------- */
+.sec {
+  margin-bottom: 30rpx;
+}
+
+.sec:last-child {
+  margin-bottom: 16rpx;
+}
+
+.sec-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12rpx;
+  font-size: 26rpx;
+  font-weight: 600;
+  color: var(--brand, #4A63E7);
+}
+
+.sec-ico {
+  margin-right: 10rpx;
+  font-size: 26rpx;
+}
+
+.sec-p {
+  margin-bottom: 8rpx;
+  font-size: 24rpx;
+  color: var(--text-2, #5B6675);
+  line-height: 1.7;
+}
+
+.sec-p:last-child {
+  margin-bottom: 0;
+}
+
+.em {
+  color: var(--text, #1F2A37);
+  font-weight: 600;
+}
+
+.sec-note {
+  margin-top: 10rpx;
+  font-size: 22rpx;
+  color: var(--text-3, #95A0B0);
+  line-height: 1.6;
+}
+
+/* -------- 三个标签 -------- */
+.tab-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16rpx;
+}
+
+.tab-row:last-child {
+  margin-bottom: 0;
+}
+
+.chip {
+  flex-shrink: 0;
+  height: 36rpx;
+  padding: 0 14rpx;
+  margin: 5rpx 14rpx 0 0;
+  border-radius: 999rpx;
+  font-size: 21rpx;
+  font-weight: 600;
+  line-height: 36rpx;
+  text-align: center;
+}
+
+.chip-send {
+  background: var(--success-soft, #E7F7EE);
+  color: var(--success, #14A44D);
+}
+
+.chip-receive {
+  background: var(--receive-soft, #E8F2FE);
+  color: var(--receive, #1F7AE0);
+}
+
+.chip-brand {
+  background: var(--brand-soft, #EDF0FE);
+  color: var(--brand, #4A63E7);
+}
+
+.tab-txt {
+  flex: 1;
+  font-size: 24rpx;
+  color: var(--text-2, #5B6675);
+  line-height: 1.6;
+}
+
+/* -------- 联动方向卡（小程序版纵向堆叠） -------- */
+.flow-card {
+  margin-top: 14rpx;
+  padding: 20rpx 24rpx;
+  background: #F8FAFD;
+  border-radius: 16rpx;
+}
+
+.flow-title {
+  margin-bottom: 10rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+  color: var(--text, #1F2A37);
+}
+
+.flow-item {
+  font-size: 23rpx;
+  color: var(--text-2, #5B6675);
+  line-height: 1.6;
+  margin-bottom: 6rpx;
+}
+
+.flow-item:last-child {
+  margin-bottom: 0;
+}
+
+.flow-num {
+  display: inline-block;
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 10rpx;
+  border-radius: 50%;
+  background: var(--brand-soft, #EDF0FE);
+  color: var(--brand, #4A63E7);
+  font-size: 18rpx;
+  line-height: 26rpx;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* -------- 小贴士 -------- */
+.tip {
+  padding: 18rpx 22rpx;
+  background: #F5F8FF;
+  border-left: 6rpx solid var(--brand, #4A63E7);
+  border-radius: 0 14rpx 14rpx 0;
+}
+
+.tip-item {
+  font-size: 23rpx;
+  color: var(--text-2, #5B6675);
+  line-height: 1.65;
+  margin-bottom: 6rpx;
+}
+
+.tip-item:last-child {
+  margin-bottom: 0;
+}
+
+/* -------- 动效 -------- */
+@keyframes maskIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) scale(.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+}

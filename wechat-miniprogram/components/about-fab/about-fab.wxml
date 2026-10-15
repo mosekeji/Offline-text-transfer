@@ -1,0 +1,85 @@
+<!-- ==================== 关于：悬浮按钮 + 使用说明弹窗 ==================== -->
+<!-- 悬浮按钮：固定在右下角，位于原生 tabBar 之上 -->
+<view class="about-fab" bindtap="onOpen" hover-class="fab-hover" hover-stay-time="80">
+  <text class="fab-ico">ℹ️</text>
+  <text class="fab-text">关于</text>
+</view>
+
+<!-- 遮罩 -->
+<view class="about-mask" wx:if="{{opened}}" bindtap="onClose" catchtouchmove="noop"></view>
+
+<!-- 弹窗 -->
+<view class="about-modal" wx:if="{{opened}}">
+  <view class="about-head" catchtouchmove="noop">
+    <view class="about-title">关于「离线二维码」</view>
+    <view class="about-sub">手机端 · 微信小程序使用说明</view>
+  </view>
+
+  <scroll-view class="about-body" scroll-y enable-flex>
+
+    <!-- 一、这是什么 -->
+    <view class="sec">
+      <view class="sec-title"><text class="sec-ico">🧭</text>这是什么</view>
+      <view class="sec-p">一个<text class="em">完全离线</text>的文本传输工具：把文字变成二维码，或把二维码还原成文字。</view>
+      <view class="sec-p">所有处理都在本机完成，不联网、不上传，断网、内网、飞行模式下都能正常使用。</view>
+    </view>
+
+    <!-- 二、三个标签怎么用 -->
+    <view class="sec">
+      <view class="sec-title"><text class="sec-ico">📱</text>三个标签怎么用</view>
+
+      <view class="tab-row">
+        <view class="chip chip-send">发送</view>
+        <view class="tab-txt">输入文字 → 点「生成二维码」，可保存到相册再发给别人</view>
+      </view>
+
+      <view class="tab-row">
+        <view class="chip chip-receive">接收</view>
+        <view class="tab-txt">用微信原生扫码，支持摄像头实时扫，也能从相册选图识别</view>
+      </view>
+
+      <view class="tab-row">
+        <view class="chip chip-brand">历史记录</view>
+        <view class="tab-txt">发送和识别的文字都自动存在本机（最多 200 条），可复制、删除</view>
+      </view>
+    </view>
+
+    <!-- 三、和电脑端联动 -->
+    <view class="sec">
+      <view class="sec-title"><text class="sec-ico">🔗</text>和电脑端怎么联动</view>
+      <view class="sec-p">电脑端是一个单文件网页，双击打开即用，无需安装；两端二维码格式完全兼容。</view>
+
+      <view class="flow-card">
+        <view class="flow-title">📱 手机 → 💻 电脑</view>
+        <view class="flow-item"><text class="flow-num">1</text>「发送」标签输入文字，点「生成二维码」；</view>
+        <view class="flow-item"><text class="flow-num">2</text>电脑网页切到「接收模式」；</view>
+        <view class="flow-item"><text class="flow-num">3</text>点「上传二维码图片」选刚保存的图，或拿手机屏幕对着电脑摄像头扫。</view>
+      </view>
+
+      <view class="flow-card">
+        <view class="flow-title">💻 电脑 → 📱 手机</view>
+        <view class="flow-item"><text class="flow-num">1</text>电脑网页「发送模式」输入文字并生成二维码；</view>
+        <view class="flow-item"><text class="flow-num">2</text>手机切到「接收」标签，对准电脑屏幕扫描；</view>
+        <view class="flow-item"><text class="flow-num">3</text>识别结果可复制，也能「去生成二维码」继续转给下一家。</view>
+      </view>
+
+      <view class="sec-note">只有手机或只有电脑时，各自也能自己传给自己，不依赖另一端。</view>
+    </view>
+
+    <!-- 四、小贴士 -->
+    <view class="sec">
+      <view class="sec-title"><text class="sec-ico">💡</text>小贴士</view>
+      <view class="tip">
+        <view class="tip-item">· 扫描距离保持 10～30 厘米，屏幕亮度调高识别更快</view>
+        <view class="tip-item">· 内容较长时二维码会很密，建议拆成几段分次传</view>
+        <view class="tip-item">· 小程序默认纠错等级为 M，可在「发送」页切换 L / M / Q / H</view>
+        <view class="tip-item">· 历史记录只存在本机，卸载小程序会一并删除，重要内容请及时留存</view>
+      </view>
+    </view>
+
+  </scroll-view>
+
+  <view class="about-foot">
+    <view class="about-btn" bindtap="onClose" hover-class="btn-hover" hover-stay-time="80">知道了</view>
+  </view>
+</view>

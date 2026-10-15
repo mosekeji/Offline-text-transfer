@@ -1,0 +1,49 @@
+<!-- 历史记录：发送 / 接收的文字记录 -->
+<view class="page">
+
+  <!-- 统计 + 清空 -->
+  <view class="bar" wx:if="{{list.length}}">
+    <view class="bar-left">
+      共 <text class="bar-num">{{list.length}}</text> 条记录
+    </view>
+    <view class="bar-clear" bindtap="onClearAll">清空全部</view>
+  </view>
+
+  <!-- 记录列表 -->
+  <view wx:if="{{list.length}}">
+    <view class="rec" wx:for="{{list}}" wx:key="id">
+      <view class="rec-head">
+        <view class="tag {{item.type === 'send' ? 'tag-send' : 'tag-receive'}}">{{item.typeText}}</view>
+        <view class="rec-time">{{item.timeText}}</view>
+        <view class="rec-len">{{item.len}} 字</view>
+      </view>
+
+      <view class="rec-text" bindtap="onPreview" data-id="{{item.id}}">
+        <text user-select="{{true}}" selectable="{{true}}">{{item.text}}</text>
+      </view>
+
+      <view class="rec-actions">
+        <view class="rec-btn" bindtap="onCopy" data-id="{{item.id}}">复制内容</view>
+        <view class="rec-btn rec-btn-danger" bindtap="onDelete" data-id="{{item.id}}">删除</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="card" wx:else>
+    <view class="empty">
+      <view class="empty-ico">🗂️</view>
+      <view class="empty-text">还没有任何记录</view>
+      <view class="empty-sub">发送二维码或扫码识别后，记录会自动出现在这里</view>
+    </view>
+  </view>
+
+  <view class="foot" wx:if="{{list.length}}">
+    记录保存在本机（最多 {{limit}} 条），卸载小程序会一并删除，请及时保存重要内容。
+  </view>
+
+  <view class="safe-bottom"></view>
+
+  <!-- 关于：右下角悬浮按钮 + 使用说明弹窗 -->
+  <about-fab />
+</view>

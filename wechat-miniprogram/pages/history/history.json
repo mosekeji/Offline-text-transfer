@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "历史记录",
+  "usingComponents": {
+    "about-fab": "/components/about-fab/about-fab"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

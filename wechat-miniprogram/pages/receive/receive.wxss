@@ -1,0 +1,117 @@
+/* ==================== 接收模式 ==================== */
+.hero {
+  background: linear-gradient(150deg, #5A73F0 0%, #4A63E7 55%, #3E52CC 100%);
+  border-radius: 28rpx;
+  padding: 56rpx 36rpx 44rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24rpx;
+  box-shadow: 0 14rpx 36rpx rgba(74, 99, 231, .30);
+}
+
+.hero-ring {
+  width: 176rpx;
+  height: 176rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28rpx;
+  box-shadow: inset 0 0 0 3rpx rgba(255, 255, 255, .35);
+}
+
+.hero-ring.busy {
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1);    box-shadow: inset 0 0 0 3rpx rgba(255,255,255,.35); }
+  50%  { transform: scale(1.06); box-shadow: inset 0 0 0 3rpx rgba(255,255,255,.75); }
+  100% { transform: scale(1);    box-shadow: inset 0 0 0 3rpx rgba(255,255,255,.35); }
+}
+
+.hero-ico {
+  font-size: 76rpx;
+  color: #fff;
+  line-height: 1;
+}
+
+.hero-title {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10rpx;
+}
+
+.hero-sub {
+  font-size: 25rpx;
+  color: rgba(255, 255, 255, .82);
+  margin-bottom: 36rpx;
+  text-align: center;
+}
+
+.hero-btns {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+}
+
+.hero-btns .btn-primary {
+  background: #fff;
+  color: var(--brand);
+  box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, .12);
+}
+
+.hero-btns .btn-ghost {
+  background: rgba(255, 255, 255, .18);
+  color: #fff;
+}
+
+/* 结果 */
+.dot-receive {
+  background: var(--receive);
+}
+
+.result-box {
+  background: #F8FAFD;
+  border: 2rpx solid var(--line);
+  border-radius: 16rpx;
+  padding: 26rpx;
+  font-size: 30rpx;
+  line-height: 1.75;
+  color: var(--text);
+  word-break: break-all;
+  white-space: pre-wrap;
+  max-height: 620rpx;
+  overflow-y: auto;
+}
+
+.result-time {
+  font-size: 23rpx;
+  color: var(--text-3);
+  margin: 16rpx 0 24rpx;
+}
+
+.result-box + .btn-row {
+  margin-top: 26rpx;
+}
+
+.tips {
+  padding: 8rpx 12rpx 0;
+}
+
+.tips-title {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: var(--text-2);
+  margin-bottom: 12rpx;
+}
+
+.tips-item {
+  font-size: 24rpx;
+  color: var(--text-3);
+  line-height: 1.9;
+}

@@ -1,0 +1,99 @@
+/* ==================== 历史记录 ==================== */
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rpx 12rpx 24rpx;
+}
+
+.bar-left {
+  font-size: 26rpx;
+  color: var(--text-2);
+}
+
+.bar-num {
+  font-weight: 700;
+  color: var(--brand);
+  font-size: 30rpx;
+  margin: 0 4rpx;
+}
+
+.bar-clear {
+  font-size: 26rpx;
+  color: var(--danger);
+  padding: 8rpx 20rpx;
+  background: var(--danger-soft);
+  border-radius: 999rpx;
+}
+
+/* 单条记录 */
+.rec {
+  background: var(--card);
+  border-radius: 24rpx;
+  padding: 28rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 6rpx 24rpx rgba(31, 42, 55, .06);
+}
+
+.rec-head {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18rpx;
+}
+
+.rec-time {
+  font-size: 24rpx;
+  color: var(--text-3);
+  margin-left: 16rpx;
+}
+
+.rec-len {
+  margin-left: auto;
+  font-size: 23rpx;
+  color: #B6BFCC;
+}
+
+.rec-text {
+  background: #F8FAFD;
+  border-radius: 14rpx;
+  padding: 22rpx;
+  font-size: 29rpx;
+  line-height: 1.7;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 400rpx;
+  overflow: hidden;
+}
+
+.rec-actions {
+  display: flex;
+  gap: 18rpx;
+  margin-top: 22rpx;
+}
+
+.rec-btn {
+  flex: 1;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14rpx;
+  background: #F5F7FB;
+  color: var(--text-2);
+  font-size: 26rpx;
+  font-weight: 600;
+}
+
+.rec-btn-danger {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.foot {
+  padding: 20rpx 12rpx 0;
+  font-size: 23rpx;
+  color: var(--text-3);
+  line-height: 1.8;
+  text-align: center;
+}

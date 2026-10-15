@@ -1,0 +1,170 @@
+/* ==================== 全局样式 ==================== */
+page {
+  --brand: #4A63E7;
+  --brand-dark: #3B50C8;
+  --brand-soft: #EDF0FE;
+  --bg: #F2F4F8;
+  --card: #FFFFFF;
+  --text: #1F2A37;
+  --text-2: #5B6675;
+  --text-3: #95A0B0;
+  --line: #E8ECF3;
+  --success: #14A44D;
+  --success-soft: #E7F7EE;
+  --receive: #1F7AE0;
+  --receive-soft: #E8F2FE;
+  --danger: #E5484D;
+  --danger-soft: #FDECEC;
+
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 24rpx 24rpx 60rpx;
+  box-sizing: border-box;
+}
+
+/* ==================== 卡片 ==================== */
+.card {
+  background: var(--card);
+  border-radius: 24rpx;
+  padding: 32rpx;
+  box-shadow: 0 6rpx 24rpx rgba(31, 42, 55, 0.06);
+  margin-bottom: 24rpx;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.card-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+}
+
+.card-title .dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: var(--brand);
+  margin-right: 14rpx;
+}
+
+.card-sub {
+  font-size: 24rpx;
+  color: var(--text-3);
+}
+
+/* ==================== 按钮 ==================== */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 92rpx;
+  border-radius: 18rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  border: none;
+  line-height: 1;
+  transition: opacity .2s, transform .1s;
+}
+
+.btn::after { border: none; }
+
+.btn-primary {
+  background: linear-gradient(135deg, #5A73F0 0%, #4A63E7 100%);
+  color: #fff;
+  box-shadow: 0 8rpx 20rpx rgba(74, 99, 231, .28);
+}
+
+.btn-ghost {
+  background: #F5F7FB;
+  color: var(--text-2);
+}
+
+.btn-danger {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.btn-success {
+  background: var(--success);
+  color: #fff;
+  box-shadow: 0 8rpx 20rpx rgba(20, 164, 77, .25);
+}
+
+.btn-sm {
+  height: 68rpx;
+  font-size: 26rpx;
+  border-radius: 14rpx;
+  padding: 0 28rpx;
+}
+
+.btn-block { width: 100%; }
+
+.btn[disabled] {
+  opacity: .5;
+}
+
+.btn-row {
+  display: flex;
+  gap: 20rpx;
+}
+
+.btn-row .btn { flex: 1; }
+
+/* ==================== 标签 ==================== */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  height: 40rpx;
+  padding: 0 18rpx;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.tag-send {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.tag-receive {
+  background: var(--receive-soft);
+  color: var(--receive);
+}
+
+/* ==================== 空状态 ==================== */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 130rpx 40rpx;
+  text-align: center;
+}
+
+.empty-ico { font-size: 96rpx; line-height: 1; margin-bottom: 24rpx; }
+.empty-text { font-size: 30rpx; color: var(--text-2); margin-bottom: 10rpx; }
+.empty-sub { font-size: 24rpx; color: var(--text-3); }
+
+/* ==================== 其它 ==================== */
+.hint {
+  font-size: 24rpx;
+  color: var(--text-3);
+  line-height: 1.7;
+}
+
+.safe-bottom { height: env(safe-area-inset-bottom); }

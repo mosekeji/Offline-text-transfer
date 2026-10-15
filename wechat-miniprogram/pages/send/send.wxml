@@ -1,0 +1,87 @@
+<!-- 发送模式：输入文字 -> 生成二维码 -->
+<view class="page">
+
+  <!-- 输入区 -->
+  <view class="card">
+    <view class="card-head">
+      <view class="card-title"><view class="dot"></view>输入内容</view>
+      <view class="card-sub" wx:if="{{text.length}}">{{text.length}} 字</view>
+    </view>
+
+    <textarea
+      class="input"
+      value="{{text}}"
+      placeholder="输入要生成二维码的文字（支持中文、emoji、链接等）"
+      placeholder-class="input-ph"
+      maxlength="2000"
+      auto-height
+      show-confirm-bar="{{false}}"
+      bindinput="onInput"
+      bindconfirm="onGenerate"
+    ></textarea>
+
+    <view class="input-foot">
+      <view class="hint">内容仅在本机处理，不会上传</view>
+      <view class="link" wx:if="{{text.length}}" bindtap="onClearText">清空</view>
+    </view>
+  </view>
+
+  <!-- 二维码区：canvas 始终存在（用 wx:if 会导致首次生成时取不到节点） -->
+  <view class="card qr-card">
+    <view class="qr-stage">
+      <canvas
+        type="2d"
+        id="qrcanvas"
+        class="qr-canvas {{hasQr ? 'qr-canvas-ready' : ''}}"
+        style="width: {{canvasCss}}px; height: {{canvasCss}}px;"
+      ></canvas>
+
+      <view class="qr-placeholder" wx:if="{{!hasQr}}">
+        <view class="qr-empty-ico">▦</view>
+        <view class="qr-empty-text">二维码会显示在这里</view>
+        <view class="qr-empty-sub">输入内容后点“生成二维码”</view>
+      </view>
+    </view>
+
+    <view class="qr-meta" wx:if="{{hasQr}}">
+      <text>纠错等级 {{ecl}}</text>
+      <text class="qr-meta-dot">·</text>
+      <text>{{qrModules}} × {{qrModules}} 模块</text>
+    </view>
+  </view>
+
+  <!-- 操作区 -->
+  <view class="btn-row">
+    <button class="btn btn-primary" bindtap="onGenerate" loading="{{generating}}">生成二维码</button>
+    <button class="btn btn-ghost" bindtap="onSave" disabled="{{!hasQr}}">保存到相册</button>
+  </view>
+
+  <!-- 纠错等级 -->
+  <view class="card">
+    <view class="card-head">
+      <view class="card-title"><view class="dot"></view>纠错等级</view>
+      <view class="card-sub">等级越高越耐污损，容量越小</view>
+    </view>
+    <view class="ecl-row">
+      <view
+        wx:for="{{eclOptions}}"
+        wx:key="value"
+        class="ecl-item {{ecl === item.value ? 'active' : ''}}"
+        data-value="{{item.value}}"
+        bindtap="onPickEcl"
+      >{{item.label}}</view>
+    </view>
+  </view>
+
+  <view class="tips">
+    <view class="tips-title">使用提示</view>
+    <view class="tips-item">· 生成后可直接让对方用“接收”页扫码</view>
+    <view class="tips-item">· 二维码尺寸会按屏幕宽度自动最大化</view>
+    <view class="tips-item">· 内容较长时建议把手机亮度调高，方便对方扫描</view>
+  </view>
+
+  <view class="safe-bottom"></view>
+
+  <!-- 关于：右下角悬浮按钮 + 使用说明弹窗 -->
+  <about-fab />
+</view>

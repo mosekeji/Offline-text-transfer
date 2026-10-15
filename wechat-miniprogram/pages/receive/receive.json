@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "接收 · 扫码识别",
+  "usingComponents": {
+    "about-fab": "/components/about-fab/about-fab"
+  }
+}

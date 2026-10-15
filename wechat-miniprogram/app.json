@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/send/send",
+    "pages/receive/receive",
+    "pages/history/history"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#4A63E7",
+    "navigationBarTitleText": "离线二维码",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F2F4F8"
+  },
+  "tabBar": {
+    "color": "#8A94A6",
+    "selectedColor": "#4A63E7",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/send/send",
+        "text": "发送",
+        "iconPath": "images/send.png",
+        "selectedIconPath": "images/send-active.png"
+      },
+      {
+        "pagePath": "pages/receive/receive",
+        "text": "接收",
+        "iconPath": "images/receive.png",
+        "selectedIconPath": "images/receive-active.png"
+      },
+      {
+        "pagePath": "pages/history/history",
+        "text": "历史记录",
+        "iconPath": "images/history.png",
+        "selectedIconPath": "images/history-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,62 @@
+<!-- 接收模式：调用微信扫码识别二维码 -->
+<view class="page">
+
+  <!-- 扫码主按钮 -->
+  <view class="hero">
+    <view class="hero-ring {{scanning ? 'busy' : ''}}">
+      <view class="hero-ico">⛶</view>
+    </view>
+    <view class="hero-title">对准对方的二维码</view>
+    <view class="hero-sub">支持摄像头扫码，也能从相册选图识别</view>
+
+    <view class="hero-btns">
+      <button class="btn btn-primary btn-block" bindtap="onScanCamera" loading="{{scanning}}">
+        打开摄像头扫码
+      </button>
+      <button class="btn btn-ghost btn-block" bindtap="onScanAlbum">从相册选二维码识别</button>
+    </view>
+  </view>
+
+  <!-- 识别结果 -->
+  <view class="card" wx:if="{{hasResult}}">
+    <view class="card-head">
+      <view class="card-title">
+        <view class="dot dot-receive"></view>识别结果
+      </view>
+      <view class="card-sub">{{result.length}} 字</view>
+    </view>
+
+    <view class="result-box">
+      <text user-select="{{true}}" selectable="{{true}}">{{result}}</text>
+    </view>
+
+    <view class="result-time" wx:if="{{resultTime}}">识别时间：{{resultTime}}</view>
+
+    <view class="btn-row">
+      <button class="btn btn-primary btn-sm" bindtap="onCopy">复制内容</button>
+      <button class="btn btn-ghost btn-sm" bindtap="onSendMode">去生成二维码</button>
+      <button class="btn btn-danger btn-sm" bindtap="onClear">清空</button>
+    </view>
+  </view>
+
+  <!-- 未识别时的说明 -->
+  <view class="card" wx:else>
+    <view class="empty">
+      <view class="empty-ico">📷</view>
+      <view class="empty-text">还没有识别到内容</view>
+      <view class="empty-sub">点击上方按钮开始扫码</view>
+    </view>
+  </view>
+
+  <view class="tips">
+    <view class="tips-title">接收提示</view>
+    <view class="tips-item">· 把对方的二维码完整放入取景框，保持 10～30 厘米</view>
+    <view class="tips-item">· 识别成功后会自动填入结果，并记入“历史记录”</view>
+    <view class="tips-item">· 首次使用需要授权摄像头/相册权限</view>
+  </view>
+
+  <view class="safe-bottom"></view>
+
+  <!-- 关于：右下角悬浮按钮 + 使用说明弹窗 -->
+  <about-fab />
+</view>

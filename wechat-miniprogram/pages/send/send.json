@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "发送 · 生成二维码",
+  "usingComponents": {
+    "about-fab": "/components/about-fab/about-fab"
+  }
+}
