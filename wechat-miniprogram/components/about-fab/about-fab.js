@@ -24,6 +24,26 @@ Component({
       this.setData({ opened: false });
     },
 
+    /** 开源仓库地址 */
+    onCopyRepo: function () {
+      this.copyAddress('https://github.com/mosekeji/Offline-text-transfer', '开源地址已复制');
+    },
+
+    /** Releases 下载地址 */
+    onCopyReleases: function () {
+      this.copyAddress('https://github.com/mosekeji/Offline-text-transfer/releases', '下载地址已复制');
+    },
+
+    /** 小程序内无法直接打开外部链接，统一用「复制到剪贴板」 */
+    copyAddress: function (url, tip) {
+      wx.setClipboardData({
+        data: url,
+        success: function () {
+          wx.showToast({ title: tip, icon: 'none' });
+        },
+      });
+    },
+
     /** 遮罩上滑动时拦截穿透 */
     noop: function () {},
   },

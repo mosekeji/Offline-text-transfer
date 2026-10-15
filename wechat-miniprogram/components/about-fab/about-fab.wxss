@@ -262,6 +262,53 @@
   margin-bottom: 0;
 }
 
+/* -------- 开源地址 / 下载地址（点击复制） -------- */
+.link-row {
+  display: flex;
+  align-items: center;
+  margin-top: 12rpx;
+  padding: 18rpx 22rpx;
+  background: #F8FAFD;
+  border-radius: 16rpx;
+  transition: background .15s ease;
+}
+
+.link-hover {
+  background: var(--brand-soft, #EDF0FE);
+}
+
+.link-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.link-label {
+  margin-bottom: 4rpx;
+  font-size: 23rpx;
+  font-weight: 600;
+  color: var(--text, #1F2A37);
+}
+
+.link-url {
+  font-size: 22rpx;
+  color: var(--brand, #4A63E7);
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+.link-copy {
+  flex-shrink: 0;
+  margin-left: 16rpx;
+  height: 48rpx;
+  padding: 0 20rpx;
+  border-radius: 999rpx;
+  background: var(--brand-soft, #EDF0FE);
+  color: var(--brand, #4A63E7);
+  font-size: 22rpx;
+  font-weight: 600;
+  line-height: 48rpx;
+}
+
 /* -------- 动效 -------- */
 @keyframes maskIn {
   from { opacity: 0; }
