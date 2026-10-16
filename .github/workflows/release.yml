@@ -46,7 +46,7 @@ jobs:
           TAG: ${{ steps.ver.outputs.tag }}
         run: |
           cat > NOTES.md <<EOF
-          ## ${TAG} · 离线二维码文本传输
+          ## ${TAG} · 文本离线传输工具
 
           一个完全离线的文本传输工具：把文字变成二维码，或把二维码还原成文字。
           所有处理都在本机完成，不联网、不上传，断网、内网、飞行模式下都能正常使用。
@@ -81,7 +81,7 @@ jobs:
             gh release upload "$TAG" dist/*.zip --clobber
           else
             gh release create "$TAG" dist/*.zip \
-              --title "${TAG} · 离线二维码文本传输" \
+              --title "${TAG} · 文本离线传输工具" \
               --notes-file NOTES.md
           fi
           echo "=== 完成，当前附件 ==="

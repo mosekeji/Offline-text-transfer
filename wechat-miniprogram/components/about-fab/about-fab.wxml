@@ -11,7 +11,7 @@
 <!-- 弹窗 -->
 <view class="about-modal" wx:if="{{opened}}">
   <view class="about-head" catchtouchmove="noop">
-    <view class="about-title">关于「离线二维码」</view>
+    <view class="about-title">关于「文本离线传输工具」</view>
     <view class="about-sub">手机端 · 微信小程序使用说明</view>
   </view>
 

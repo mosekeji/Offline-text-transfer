@@ -1,5 +1,5 @@
 {
-  "description": "离线二维码小程序（发送 / 接收 / 历史记录）",
+  "description": "文本离线传输工具（微信小程序：发送 / 接收 / 历史记录）",
   "packOptions": {
     "ignore": [
       {
