@@ -34,6 +34,16 @@ Component({
       this.copyAddress('https://github.com/mosekeji/Offline-text-transfer/releases', '下载地址已复制');
     },
 
+    /** Gitee 开源仓库地址 */
+    onCopyGiteeRepo: function () {
+      this.copyAddress('https://gitee.com/mstf/Offline-text-transfer', 'Gitee 开源地址已复制');
+    },
+
+    /** Gitee Releases 下载地址 */
+    onCopyGiteeReleases: function () {
+      this.copyAddress('https://gitee.com/mstf/Offline-text-transfer/releases', 'Gitee 下载地址已复制');
+    },
+
     /** 小程序内无法直接打开外部链接，统一用「复制到剪贴板」 */
     copyAddress: function (url, tip) {
       wx.setClipboardData({

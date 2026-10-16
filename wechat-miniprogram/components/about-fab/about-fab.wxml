@@ -84,7 +84,7 @@
 
       <view class="link-row" bindtap="onCopyRepo" hover-class="link-hover" hover-stay-time="60">
         <view class="link-main">
-          <view class="link-label">开源仓库</view>
+          <view class="link-label">开源仓库（GitHub）</view>
           <view class="link-url">github.com/mosekeji/Offline-text-transfer</view>
         </view>
         <view class="link-copy">复制</view>
@@ -92,13 +92,29 @@
 
       <view class="link-row" bindtap="onCopyReleases" hover-class="link-hover" hover-stay-time="60">
         <view class="link-main">
-          <view class="link-label">下载最新版</view>
+          <view class="link-label">下载最新版（GitHub）</view>
           <view class="link-url">github.com/mosekeji/Offline-text-transfer/releases</view>
         </view>
         <view class="link-copy">复制</view>
       </view>
 
-      <view class="sec-note">点任意一行即可复制完整地址，粘贴到浏览器打开。小程序内不能直接跳转外部链接，建议在电脑上访问 GitHub。</view>
+      <view class="link-row" bindtap="onCopyGiteeRepo" hover-class="link-hover" hover-stay-time="60">
+        <view class="link-main">
+          <view class="link-label">Gitee 开源仓库</view>
+          <view class="link-url">gitee.com/mstf/Offline-text-transfer</view>
+        </view>
+        <view class="link-copy">复制</view>
+      </view>
+
+      <view class="link-row" bindtap="onCopyGiteeReleases" hover-class="link-hover" hover-stay-time="60">
+        <view class="link-main">
+          <view class="link-label">Gitee 下载最新版</view>
+          <view class="link-url">gitee.com/mstf/Offline-text-transfer/releases</view>
+        </view>
+        <view class="link-copy">复制</view>
+      </view>
+
+      <view class="sec-note">点任意一行即可复制完整地址，粘贴到浏览器打开。小程序内不能直接跳转外部链接，GitHub 与 Gitee 仓库内容保持同步，国内访问推荐 Gitee。</view>
     </view>
 
   </scroll-view>
